@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">MyApplication</string>
+    <string name="enter_score">Enter Score</string>
+    <string name="submit">Submit</string>
+    <string name="score_log">Score log:</string>
+    <string name="no_logs_message">No logs yet, time to play!</string>
+    <string name="log_out">Log out</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="item_1">Item 1</string>
+    <string name="signup">Sign Up</string>
+    <string name="user">USER</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="admin_settings">Admin Settings</string>
+    <string name="app_title">Golf Handicap Calculator</string>
+    <string name="delete_scores">Delete Scores:</string>
+    <string name="view_users">View Users</string>
+    <string name="delete_users">Delete Users</string>
+    <string name="delete_users_colon">Delete Users:</string>
+    <string name="view_scores">View Scores</string>
+    <string name="return_to_main_screen">Return to Main Screen</string>
+    <string name="scores">Scores</string>
+    <string name="game">Random Club Game</string>
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminSettings">
+
+    <Button
+        android:id="@+id/buttonViewScores"
+        android:layout_width="133dp"
+        android:layout_height="67dp"
+        android:text="@string/view_scores"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.239" />
+
+    <TextView
+        android:id="@+id/textViewAdminSettings"
+        android:layout_width="239dp"
+        android:layout_height="93dp"
+        android:gravity="center"
+        android:text="@string/admin_settings"
+        android:textSize="34sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textViewDeleteScores"
+        android:layout_width="129dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/delete_scores"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <TextView
+        android:id="@+id/textViewDeleteUsers"
+        android:layout_width="129dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/delete_users_colon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423" />
+
+    <Button
+        android:id="@+id/buttonReturnMainScreen"
+        android:layout_width="174dp"
+        android:layout_height="104dp"
+        android:text="@string/return_to_main_screen"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
+
+    <Button
+        android:id="@+id/buttonViewUsers"
+        android:layout_width="135dp"
+        android:layout_height="69dp"
+        android:text="@string/view_users"
+        tools:layout_editor_absoluteX="207dp"
+        tools:layout_editor_absoluteY="274dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
