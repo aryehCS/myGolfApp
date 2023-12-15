@@ -46,19 +46,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.244" />
 
-    <TextView
-        android:id="@+id/textViewDeleteUsers"
-        android:layout_width="129dp"
-        android:layout_height="45dp"
-        android:gravity="center"
-        android:text="@string/delete_users_colon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
-
     <Button
         android:id="@+id/buttonReturnMainScreen"
         android:layout_width="174dp"
@@ -72,11 +59,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />
 
-    <Button
-        android:id="@+id/buttonViewUsers"
-        android:layout_width="135dp"
-        android:layout_height="69dp"
-        android:text="@string/view_users"
-        tools:layout_editor_absoluteX="207dp"
-        tools:layout_editor_absoluteY="274dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

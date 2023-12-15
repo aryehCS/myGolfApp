@@ -33,6 +33,9 @@ public interface ScoreLogDAO { // entry point for accessing the database
     @Query("SELECT * FROM " + AppDataBase.SCORELOG_TABLE + " WHERE mUserId = :userId  ORDER BY mDate DESC")
     List<ScoreLog> getLogsByUserId(int userId);
 
+    @Query("DELETE FROM " + AppDataBase.SCORELOG_TABLE)
+    void deleteAllScores();
+
     @Insert
     void insert (User... users);
 
@@ -51,4 +54,5 @@ public interface ScoreLogDAO { // entry point for accessing the database
 
     @Query("SELECT * FROM " + AppDataBase.USER_TABLE + " WHERE mUserId = :userId ")
     User getUserByUserId(int userId);
+
 }

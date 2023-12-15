@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mSubmit;
 
     private Button logoutBTN;
+    private Button buttonToGame;
 
     private ScoreLogDAO mScoreLogDAO;
 
@@ -56,18 +57,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Intent intent = LoginActivity.intentFactory(this);
-//        startActivity(intent);
-//        finish();
-
-
         getDatabase();
-
         checkForUser();
-//        addUserToPreference(mUserId);
         loginUser(mUserId);
-
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -93,7 +85,33 @@ public class MainActivity extends AppCompatActivity {
                 refreshDisplay();
             }
         });
+
+        goToGame();
+        goToAdminSettings();
     }// end of onCreate
+
+    private void goToGame(){
+        buttonToGame = findViewById(R.id.buttonToGame);
+        buttonToGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // direct to game activity
+                Intent intent = new Intent(MainActivity.this, Game.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void goToAdminSettings() {
+        Button adminSettings = binding.buttonAdminSettings;
+        adminSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AdminSettings.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 
     private void loginUser(int userId) {
@@ -208,64 +226,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refreshDisplay() {
-        mScoreLogList = mScoreLogDAO.getLogById(mUserId);
-        if (!mScoreLogList.isEmpty()) {
+        //mScoreLogList = mScoreLogDAO.getLogById(mUserId);
+        mScoreLogList = mScoreLogDAO.getLogsByUserId(mUserId);
+
+        if(!mScoreLogList.isEmpty()){
             StringBuilder sb = new StringBuilder();
-            for (ScoreLog log : mScoreLogList) {
-                sb.append(log.toString());
+            for(ScoreLog log : mScoreLogList){
+                sb.append(log.toString()).append("\n");
             }
             mMainDisplay.setText(sb.toString());
         } else {
             mMainDisplay.setText(R.string.no_logs_message);
         }
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.example_menu, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if (item.getItemId() == R.id.userMenuLogout) {
-//            logoutUser();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
-        //    public void showPopup(View v) {
-//        PopupMenu popup = new PopupMenu(this, v);
-//        MenuInflater inflater = popup.getMenuInflater();
-//        inflater.inflate(R.menu.example_menu, popup.getMenu());
-//        popup.show();
-//        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//            public boolean onMenuItemClick(MenuItem item) {
-//                mUserId = item.getItemId();
-//                refreshDisplay();
-//                return true;
-//            }
-//        });
-//    }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.example_menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if (item.getItemId() == R.id.item1) {
-//            Toast.makeText(this, "Logout?", Toast.LENGTH_SHORT).show();
-//            logoutUser();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
     public static Intent intentFactory(Context context, int userId){
         Intent intent = new Intent(context, MainActivity.class);

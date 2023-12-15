@@ -8,14 +8,14 @@
 
     <Button
         android:id="@+id/buttonAdminSettings"
-        android:layout_width="142dp"
-        android:layout_height="84dp"
+        android:layout_width="137dp"
+        android:layout_height="86dp"
         android:text="@string/admin_settings"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.927"
@@ -61,15 +61,26 @@
 
     <Button
         android:id="@+id/buttonHomeLogOut"
-        android:layout_width="121dp"
-        android:layout_height="82dp"
+        android:layout_width="137dp"
+        android:layout_height="86dp"
         android:text="@string/log_out"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.927" />
+        app:layout_constraintVertical_bias="0.928" />
+
+    <Button
+        android:id="@+id/buttonToGame"
+        android:layout_width="137dp"
+        android:layout_height="86dp"
+        android:text="@string/game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.775" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,4 +25,8 @@
     <string name="return_to_main_screen">Return to Main Screen</string>
     <string name="scores">Scores</string>
     <string name="game">Random Club Game</string>
+    <string name="randomize">Randomize</string>
+    <string name="delete_all_scores">Delete All Scores</string>
+    <string name="users">Users</string>
+    <string name="return_">Return</string>
 </resources>
