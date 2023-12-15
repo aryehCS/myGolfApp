@@ -29,4 +29,6 @@
     <string name="delete_all_scores">Delete All Scores</string>
     <string name="users">Users</string>
     <string name="return_">Return</string>
+    <string name="handicap_title">Your Handicap:</string>
+    <string name="complaint">Complain</string>
 </resources>

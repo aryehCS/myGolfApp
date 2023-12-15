@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,10 +30,10 @@ public class AdminViewScores extends AppCompatActivity {
         backToMain();
 
         // initialize DAO
-        scoreLogDAO = Room.databaseBuilder(getApplicationContext(),
-                AppDataBase.class, "ScoreLog.db").allowMainThreadQueries().build().getScoreLogDAO();
+//        scoreLogDAO = Room.databaseBuilder(getApplicationContext(),
+//                AppDataBase.class, "ScoreLog.db").allowMainThreadQueries().build().getScoreLogDAO();
 
-
+        displayScores();
 
         mDeleteScores = findViewById(R.id.buttonDeleteScores);
         mDeleteScores.setOnClickListener(new View.OnClickListener() {
@@ -41,26 +42,43 @@ public class AdminViewScores extends AppCompatActivity {
                 deleteScores();
             }
         });
-
-        // viewUsers();
     }
-//    private void viewUsers() {
-//        mScoreList = findViewById(R.id.textViewScoresTable);
-//        AppDataBase db = Room.databaseBuilder(getApplicationContext(),
-//                AppDataBase.class, "scoreLog-database").allowMainThreadQueries().build();
-//        scoreLogDAO = db.getScoreLogDAO();
-//        List<User> users = scoreLogDAO.getAllUsers();
-//        displayUsers(users);
-//    }
+
+    private void displayScores() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                scoreLogDAO = Room.databaseBuilder(getApplicationContext(),
+                        AppDataBase.class, "ScoreLog.db").allowMainThreadQueries().build().getScoreLogDAO();
+
+                List<ScoreLog> scores = scoreLogDAO.getAllScoreLogs();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mScoreList = findViewById(R.id.textViewScoresTable);
+                        mScoreList.setMovementMethod(new ScrollingMovementMethod());
+                        mScoreList.setText("");
+
+                        for(ScoreLog score : scores) {
+                            mScoreList.append(score.toString() + "\n");
+                        }
+                    }
+
+                });
+            }
+        }).start();
+//        List<ScoreLog> scores = scoreLogDAO.getAllScoreLogs();
 //
-//    private void displayUsers(List<User> users) {
-//        StringBuilder sb = new StringBuilder();
-//        for(User user : users) {
-//            sb.append(user.toString());
-//            sb.append("\n");
+//        mScoreList = findViewById(R.id.textViewScoresTable);
+//        // mScoreList.setText("");
+//        mScoreList.setText("Username\tScore\tDate\n");
+//
+//        for(ScoreLog score : scores) {
+//            mScoreList.append(score.toString() + "\n");
 //        }
-//        mScoreList.setText(sb.toString());
-//    }
+
+    }
 
     private void backToMain() {
         mButtonMainScreen = findViewById(R.id.buttonReturnMainScreen);
