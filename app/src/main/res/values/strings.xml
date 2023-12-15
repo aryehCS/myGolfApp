@@ -31,4 +31,8 @@
     <string name="return_">Return</string>
     <string name="handicap_title">Your Handicap:</string>
     <string name="complaint">Complain</string>
+    <string name="view_handicap">View Handicap</string>
+    <string name="welcome">"Welcome "</string>
+    <string name="welcome_">Welcome!</string>
+    <string name="handicap">"Handicap: "</string>
 </resources>

@@ -1,3 +1,4 @@
+// @author Aryeh Freud
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +18,13 @@ public class AdminSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_settings);
 
-        backToMain();
-        viewScores();
+        backToMain(); // back to main screen
+        viewScores(); // view scores
         //viewUsers();
     }
 
 
-    private void backToMain() {
+    private void backToMain() { // back to main screen
         mButtonMainScreen = findViewById(R.id.buttonReturnMainScreen);
         mButtonMainScreen.setOnClickListener(new View.OnClickListener() {
             @Override

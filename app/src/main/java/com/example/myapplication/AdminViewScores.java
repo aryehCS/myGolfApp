@@ -1,3 +1,4 @@
+// @author Aryeh Freud
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,16 +28,12 @@ public class AdminViewScores extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_scores);
 
-        backToMain();
+        backToMain(); // back to main screen
 
-        // initialize DAO
-//        scoreLogDAO = Room.databaseBuilder(getApplicationContext(),
-//                AppDataBase.class, "ScoreLog.db").allowMainThreadQueries().build().getScoreLogDAO();
-
-        displayScores();
+        displayScores(); // display scores
 
         mDeleteScores = findViewById(R.id.buttonDeleteScores);
-        mDeleteScores.setOnClickListener(new View.OnClickListener() {
+        mDeleteScores.setOnClickListener(new View.OnClickListener() { // delete scores
             @Override
             public void onClick(View v) {
                 deleteScores();
@@ -44,7 +41,7 @@ public class AdminViewScores extends AppCompatActivity {
         });
     }
 
-    private void displayScores() {
+    private void displayScores() { // display scores
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -68,15 +65,6 @@ public class AdminViewScores extends AppCompatActivity {
                 });
             }
         }).start();
-//        List<ScoreLog> scores = scoreLogDAO.getAllScoreLogs();
-//
-//        mScoreList = findViewById(R.id.textViewScoresTable);
-//        // mScoreList.setText("");
-//        mScoreList.setText("Username\tScore\tDate\n");
-//
-//        for(ScoreLog score : scores) {
-//            mScoreList.append(score.toString() + "\n");
-//        }
 
     }
 

@@ -1,3 +1,4 @@
+// @author Aryeh Freud
 package com.example.myapplication.DB;
 
 import java.util.ArrayList;
@@ -9,11 +10,11 @@ import java.util.Random;
 
 public class GameUtil {
 
-    enum Suit {
+    enum Suit { // enum for the suits
         HEARTS, DIAMONDS, CLUBS, SPADES
     }
 
-    enum Rank {
+    enum Rank { // enum for the ranks
         ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
     }
 
@@ -28,10 +29,8 @@ public class GameUtil {
 
         @Override
         public String toString() {
-            return "Card{" +
-                    "Suit=" + mSuit +
-                    ", Rank=" + mRank +
-                    '}';
+            return "\n" + "Card: " + "\n" +
+                    mRank + " of " + mSuit;
         }
 
         public Suit getSuit() {
@@ -46,17 +45,18 @@ public class GameUtil {
         private final Map<Rank, String> clubMap = new HashMap<>();
         private final Map<Suit, String> shotTypeMap = new HashMap<>();
 
-        public void createDeck() {
+        public void createDeck() { // creates the deck
             for (Suit suit : Suit.values()) {
                 for (Rank rank : Rank.values()) {
-                    deck.add(new Card(suit, rank));
+                    deck.add(new Card(suit, rank)); // adds a card to the deck
                 }
             }
             initMaps();
         }
 
 
-        private void initMaps() {
+        private void initMaps() { // initializes the maps
+            // maps the rank to the club
             clubMap.put(Rank.ACE, "Driver");
             clubMap.put(Rank.KING, "Fairway Wood");
             clubMap.put(Rank.TWO, "Fairway Wood/Hybrid");
@@ -70,18 +70,18 @@ public class GameUtil {
             clubMap.put(Rank.TEN, "Pitching Wedge");
             clubMap.put(Rank.JACK, "Gap Wedge");
             clubMap.put(Rank.QUEEN, "Lob Wedge");
-
+            // maps the suit to the shot type
             shotTypeMap.put(Suit.HEARTS, "Straight");
             shotTypeMap.put(Suit.DIAMONDS, "Fade");
             shotTypeMap.put(Suit.CLUBS, "3/4");
             shotTypeMap.put(Suit.SPADES, "Draw");
         }
 
-        public void shuffleDeck() {
+        public void shuffleDeck() { // shuffles the deck
             Collections.shuffle(deck);
         }
 
-        public String getCard() {
+        public String getCard() {//returns a random card from the deck
             Random random = new Random();
             Card myCard = deck.get(random.nextInt(deck.size()));
             String club = clubMap.get(myCard.getRank());

@@ -1,3 +1,4 @@
+// @author Aryeh Freud
 package com.example.myapplication;
 
 import androidx.room.Entity;

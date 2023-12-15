@@ -1,3 +1,4 @@
+// @author Aryeh Freud
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private int mUserId = -1;
     private SharedPreferences mPreferences = null;
     private User mUser;
+    private TextView mWelcomeUser;
+    private Button mHandicapButton;
 
 
     @Override
@@ -57,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getDatabase();
-        checkForUser();
-        loginUser(mUserId);
+        getDatabase(); // get database
+        checkForUser(); // check for user
+        loginUser(mUserId); // login user
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -69,12 +72,12 @@ public class MainActivity extends AppCompatActivity {
         mSubmit = binding.buttonSubmit;
 
         mMainDisplay.setMovementMethod(new ScrollingMovementMethod());
-        if(mUser != null && mUser.getIsAdmin()){
+        if(mUser != null && mUser.getIsAdmin()){ // if user is admin, show admin settings button
             Button adminSettings = binding.buttonAdminSettings;
             adminSettings.setVisibility(View.VISIBLE);
         }
         refreshDisplay();
-        logoutUser();
+        logoutUser(); // logout user
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,9 +89,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        goToGame();
-        goToAdminSettings();
+        goToGame(); // go to game
+        goToAdminSettings(); // go to admin settings
+        goToHandicap(); // go to handicap
     }// end of onCreate
+
+    private void goToHandicap(){
+        mHandicapButton = findViewById(R.id.buttonGoToHandicap);
+        mHandicapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HandicapActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     private void goToGame(){
         buttonToGame = findViewById(R.id.buttonToGame);
